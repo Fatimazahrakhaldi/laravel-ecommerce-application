@@ -7,6 +7,8 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
+    use WithoutModelEvents;
+
     /**
      * Seed the application's database.
      *
@@ -14,6 +16,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(AdminsTableSeeder::class);
+        $this->call(SettingsTableSeeder::class);
+        $this->call(CategoriesTableSeeder::class);
+        $this->call(AttributesTableSeeder::class);
+
         // \App\Models\User::factory(10)->create();
+
     }
 }
